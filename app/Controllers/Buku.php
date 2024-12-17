@@ -32,11 +32,10 @@ class Buku extends BaseController
     public function tambah()
     {
         // mengambil data input
-        session();
         $data = [
             'title' => 'Tambah Buku',
             'active' => 'buku',
-            'validate' => (null !== $this->validator->getErrors()) ? "" : $this->validator->getErrors()
+            'validate' => session()->get('validate')
         ];
         return view('buku/tambah', $data);
     }
