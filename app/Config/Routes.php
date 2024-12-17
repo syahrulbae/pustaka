@@ -16,6 +16,8 @@ $routes->get('/buku/(:any)', 'Buku::detail/$1');
 $routes->delete('/buku/(:num)','Buku::hapus/$1');
 
 $routes->get('/anggota', 'Anggota::index');
+$routes->post('/anggota', 'Anggota::index');
+
 
 $routes->group('pages', function ($routes) {
     $routes->get('about', 'Pages::about');

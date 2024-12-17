@@ -13,10 +13,16 @@ class Anggota extends BaseController
     public function index()
     {
         $currentPage = $this->request->getVar('page_anggota') ? $this->request->getVar('page_anggota') : 1;
+        $keyword = $this->request->getVar('keyword');
+        if($keyword) {
+            $anggota = $this->AnggotaModel->searchAnggota($keyword);
+        } else {
+            $anggota = $this->AnggotaModel;
+        }
         $data = [
             'title' => 'daftar anggota',
             'active' => 'anggota',
-            'anggota'=> $this->AnggotaModel->paginate(6, 'anggota'),
+            'anggota'=> $anggota->paginate(6, 'anggota'),
             'pager' => $this->AnggotaModel->pager,
             'currentPage' => $currentPage
         ];

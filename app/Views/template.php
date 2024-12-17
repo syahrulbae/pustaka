@@ -48,8 +48,11 @@
                 <li class="nav-item">
                     <a class="nav-link <?= ($active == 'anggota') ? 'active' : '' ?>" href="#">Anggota</a>
                 </li>
-
             </ul>
+            <form class="d-flex" action="" method="POST">
+                <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 

@@ -14,4 +14,8 @@ class AnggotaModel extends Model
         }
         return $this->where(['id' => $id])->first();
     }
+
+    public function searchAnggota($keyword) {
+        return $this->table('anggota')->like('nama', $keyword)->orLike('alamat', $keyword);
+    }
 }
